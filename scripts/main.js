@@ -192,7 +192,7 @@ app.controller('OMAFController', function ($scope, manifests){
   };
 
   $scope.doLoad = function () {
-    let filename = document.getElementById("filename")?.dataset?.filename
+    let filename = document.getElementById("filename").dataset.filename
     var span = document.getElementById("iconPlayPause");
     if (span !== null && $scope.player.initialized) {
       if($scope.player.isPlaying){
