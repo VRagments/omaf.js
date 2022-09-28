@@ -509,8 +509,14 @@ def main():
         print "Error: provided steps are not valid"
         return -1
     filename_prefix = args.FilePrefix
+    print("############# Reading from args #############")
+    print(filename_prefix)
+    print("############# Reading from args #############")
     if 1 in steps and not filename_prefix:
         filename_prefix = get_file_prefix(args.input)
+        print("############# Guessing #############")
+        print(filename_prefix)
+        print("############# Guessing #############")
     if not filename_prefix:
         print "Error: please provide file prefix with option [-p|--FilePrefix] since it can not be guessed from filename"
         return -1
@@ -546,6 +552,9 @@ def main():
     for step in steps:
         if step == 1:
             yuv_dir = os.path.join(args.OutputDir, 'yuv', filename_prefix)
+            print("############# Step:1 #############")
+            print(filename_prefix)
+            print("############# Step:1 #############")
             make_dirs_if_not_exist(yuv_dir)
             print "NOTE: The sequence you provided is now called \"{}\"" \
                   " you will find all the output files in directory \"{}\"".format(filename_prefix, yuv_dir)
@@ -586,6 +595,9 @@ def main():
             next_input = output_dir
         elif step == 4:
             hevc_dir = os.path.join(args.OutputDir, 'hevc', filename_prefix)
+            print("############# Step:4 #############")
+            print(filename_prefix)
+            print("############# Step:4 #############")
             make_dirs_if_not_exist(hevc_dir)
             if args.QP:
                 for qp in args.QP:
