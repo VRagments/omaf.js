@@ -253,13 +253,8 @@ def get_frame_cnt_yuv420(file_path, width, height):
 
 
 def get_file_prefix(file_in):
-    file_in_base = os.path.basename(file_in)
-    match = re.search(r'\s*((\d+)x(\d+))', file_in_base)
-    if match:
-        filename_prefix = file_in_base[0:file_in_base.find(match.group(1))]
-    else:
-        filename_prefix = file_in_base[:-4]
-    return filename_prefix.replace('_', '')
+    file_name_with_ext = os.path.splitext(file_in)
+    return file_name_with_ext[0]
 
 
 def get_step1_cmd(bin_dir, output_dir, file_in, width, height, frame_cnt, bit_depth, chroma_format):
